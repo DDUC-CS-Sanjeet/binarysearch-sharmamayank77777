@@ -24,12 +24,13 @@ bool binarySearchIterative(int* array, int startIndex, int lastIndex, int elemen
 	int mid;
 	while(startIndex<=lastIndex)
 	{
+		mid=(startIndex+lastIndex)/2;
 		if(array[mid]==element)
 		return true;
 		else if(array[mid]<element)
-		startIndex=mid-1;
+		startIndex=mid+1;
 		else
-		lastIndex=mid+1;
+		lastIndex=mid-1;
 		}	
   return false;
 }
@@ -48,16 +49,16 @@ int main()
 	sort(array,array+size);
 	bool result1=binarySearchReacursive(array,0,size-1,num);
 	bool result2=binarySearchIterative(array,0,size-1,num);
-	cout<<"************* Recursion Result***********";
-	if(result1==false)
+	cout<<"************* Recursive Result ***********";
+	if(result1==0)
 	cout<<"\nGiven number is not present in array";
 	else
 	cout<<"\nGiven number is present in array";
-    cout<<"\n************* Iterative Result***********";
-    if(result2==false)
+    cout<<"\n************* Iterative Result ***********";
+    if(result2==0)
 	cout<<"\nGiven number is not present in array";
 	else
 	cout<<"\nGiven number is present in array";
-
+  
   return 0;
 }
